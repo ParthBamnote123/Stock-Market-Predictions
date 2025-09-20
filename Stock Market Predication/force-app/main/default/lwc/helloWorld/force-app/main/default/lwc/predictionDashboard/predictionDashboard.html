@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="🔮 Stock Predictions">
+        <template if:true={predictions}>
+            <lightning-datatable
+                key-field="id"
+                data={predictions}
+                columns={[
+                    {label: 'Date', fieldName: 'Prediction_Date__c', type: 'date'},
+                    {label: 'Predicted Price', fieldName: 'Predicted_Price__c', type: 'currency'},
+                    {label: 'Confidence (%)', fieldName: 'Confidence_Score__c', type: 'percent'}
+                ]}>
+            </lightning-datatable>
+        </template>
+        <template if:false={predictions}>
+            <p>No predictions available</p>
+        </template>
+    </lightning-card>
+</template>
